@@ -1,12 +1,57 @@
-<fnc-main-menu [canExpand]="true"></fnc-main-menu>
-<mm-page>
-  <mm-page-content centered>
-    <div class="home-dashboard__welcome">
-      <div class="home-dashboard__title">
-        <div class="home-dashboard__titleGreeting">Welcome back,</div>
-        <div class="home-dashboard__titleFullname">{{ userFullName }}!</div>
-      </div>
-      <div class="home-dashboard__illustration"></div>
-    </div>
-  </mm-page-content>
-</mm-page>
+
+<mat-form-field>
+  <mat-label>Choose first instrument</mat-label>
+  <mat-select [formControl]="instrument1Control">
+    <mat-option *ngFor="let instrument of instrumentsList" [value]="instrument.type">
+      {{instrument.type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Choose second instrument</mat-label>
+  <mat-select [formControl]="instrument2Control">
+    <mat-option *ngFor="let instrument of instrumentsList" [value]="instrument.type">
+      {{instrument.type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" [formControl]="startDateControl">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+<mat-form-field appearance="fill">
+  <mat-select [formControl]="maxIntervalYearsControl">
+    <mat-option *ngFor="let year of [1,2,3]" [value]="year">
+      {{year}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+<compare-instruments-chart
+  *ngIf="winsChartData.length"
+  [data]="winsChartData"
+  [type]="chartTypes.HORIZONTAL_BAR_2D"
+>
+</compare-instruments-chart>
+
+<compare-instruments-chart
+  *ngIf="yieldChartData.length"
+  [data]="yieldChartData"
+  [type]="chartTypes.LINE"
+>
+</compare-instruments-chart>
+
+<!--<compare-instruments-chart-->
+<!--  *ngIf="yieldChartData.length"-->
+<!--  [data]="yieldChartData">-->
+<!--</compare-instruments-chart>-->
+
+

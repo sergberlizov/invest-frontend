@@ -1,6 +1,11 @@
 {
   "name": "invest-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "investment application ui",
+  "main": "index.js",
+  "author": "Sergey Berlizov",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,16 +13,20 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
+    "@angular/cdk": "^13.1.2",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
     "@angular/forms": "~13.1.0",
+    "@angular/material": "^13.1.2",
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@swimlane/ngx-charts": "20.0.1",
+    "@types/d3-scale": "^4.0.2",
+    "@types/d3-selection": "^3.0.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
